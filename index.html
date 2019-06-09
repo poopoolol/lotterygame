@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh_TW">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Sriracha&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Tangerine&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ledger&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="./css/index.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lottery game</title>
+</head>
+
+<body style="background-color:87a9bb3b">
+    <!--上方欄位，含名字、email-->
+    <div id="title">
+        <div class="row">
+            <div class="col-7 text-left">
+                &nbspAn-Chun Fang's Taiwan lottery game
+            </div>
+            <div class="col-1 text-right">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="col-4 text-left secret">
+                b04603006@ntu.edu.tw
+            </div>
+        </div>
+    </div>
+    <!--遊戲介紹-->
+    <div class="hero-section">
+        <div class="hero-section-text animated bounceInDown">
+            <h1>WELCOME TO THE LOTTERY GAME</h1>
+            <h3>Come and win money!</h3>
+        </div>
+    </div>
+    <!--遊戲規則-->
+    <section class="fdb-block" style="padding-top: 20px" id="rule">
+        <div class="container">
+            <div class="row align-items-center pb-xl-5">
+                <div class="col-5">
+                    <h1 class="animated infinite fadeIn">Game rules</h1>
+                    <p class="lead">You can pick 6 numbers out from 1 to 49. Later, the system will randomly pick out 6 normal numbers and 1 special number. The money you win depends on how many numbers you and the randomly picked numbers have in common.</p>
+                </div>
+                <div class="col-5">
+                    <img alt="image" class="animated infinite bounce" src="./ball/49.png">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-3">
+                    <h3><strong>3 same numbers</strong></h3>
+                    <p>You can get $400 (3 normal numbers or 2 normal and 1 special).</p>
+                </div>
+
+                <div class="col-3">
+                    <h3><strong>4 same numbers</strong></h3>
+                    <p>You win $2000 for 4 normal numbers and $1000 for 3 normal numbers and 1 special number.</p>
+                </div>
+
+                <div class="col-3">
+                    <h3><strong>5 same numbers</strong></h3>
+                    <p>You win $100000 for 5 normal numbers and $50000 for 4 normal numbers and 1 special number.</p>
+                </div>
+
+                <div class="col-3">
+                    <h3><strong>6 same numbers</strong></h3>
+                    <p>You win $200000000 for 6 normal numbers and $100000000 for 5 normal numbers and 1 special number.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--輸入六個數字-->
+    <section id="inputsection" class="inputtext">
+        <div class="form-group row" style="padding-left: 20px">
+
+            <div class="col" style="padding-left: 20px">
+                <label for="example-number-input" class="col-form-label">input 6 number from 1 to 49</label>
+                <input class="form-control" type="number" value="49" id="input-text" style="width: 100px">
+            </div>
+        </div>
+        <button id="input" type="button" class="btn btn-primary" style="margin-left: 20px">input</button>
+        <button id="clear" type="button" class="btn btn-primary">reset number</button>
+
+        <div class="row" id="data" style="padding-left: 20px">
+            <div>
+                <img class="item animated jello" src="./ball/1.png" style="animation-iteration-count:5"></img>
+            </div>
+            <div>
+                <img class="item animated jello" src="./ball/1.png" style="animation-iteration-count:5"></img>
+            </div>
+            <div>
+                <img class="item animated jello" src="./ball/1.png" style="animation-iteration-count:5"></img>
+            </div>
+            <div>
+                <img class="item animated jello" src="./ball/1.png" style="animation-iteration-count:5"></img>
+            </div>
+            <div>
+                <img class="item animated jello" src="./ball/1.png" style="animation-iteration-count:5"></img>
+            </div>
+            <div>
+                <img class="item animated jello" src="./ball/1.png" style="animation-iteration-count:5"></img>
+            </div>
+        </div>
+        <button id="submit" disabled="disabled" type="button" class="btn btn-primary" style="margin: 20px">submit</button>
+    </section>
+    <!--輸入成功-->
+    <div id="dialogsuccess" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">GOOD LUCK!</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closewindow">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--輸入錯誤-->
+    <div id="dialogfail" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">Input failure! You should input a number from 1 to 49</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closewindow">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--輸入重複-->
+    <div id="dialogrepeat" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">Input failure! Check if you input the same numbers</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--開獎-->
+    <div class="openbutton">
+        <button id="revealBall1" disabled="disabled" type="button" class="btn btn-primary" style="margin: 20px">OPEN 1 !</button>
+        <button id="revealBall2" disabled="disabled" type="button" class="btn btn-primary" style="margin: 20px">OPEN 2 !</button>
+        <button id="revealBall3" disabled="disabled" type="button" class="btn btn-primary" style="margin: 20px">OPEN 3 !</button>
+        <button id="revealBall4" disabled="disabled" type="button" class="btn btn-primary" style="margin: 20px">OPEN 4 !</button>
+        <button id="revealBall5" disabled="disabled" type="button" class="btn btn-primary" style="margin: 20px">OPEN 5 !</button>
+        <button id="revealBall6" disabled="disabled" type="button" class="btn btn-primary" style="margin: 20px">OPEN 6 !</button>
+    </div>
+    <section id="opener">
+        <div class="">
+            <img class="open animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+            <img class="open animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+            <img class="open animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+            <img class="open animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+            <img class="open animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+            <img class="open animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+            <img class="open animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+
+        </div>
+    </section>
+    <button id="revealBall7" disabled="disabled" type="button" class="btn btn-primary openbutton" style="margin: 20px">OPEN SPECIAL</button>
+    <section id="openerspecial">
+        <div>
+            <img class="openspecial animated bounceInRight" src="./ball/back.png " style="animation-iteration-count:1 "></img>
+        </div>
+    </section>
+    <!--計算結果-->
+    <button id="gameset" disabled="disabled" type="button" class="btn btn-primary openbutton" style="margin: 20px">Calculate Result</button>
+    <!--結果視窗沒中獎-->
+    <div id="dialognoprice" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">Poor You ! Wish you better luck next time !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗3,0-->
+    <div id="dialog30" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">You match 3 normal numbers! You win $400 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗2,1-->
+    <div id="dialog21" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">You match 2 normal numbers and 1 special number! You win $400 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗4,0-->
+    <div id="dialog40" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">You match 4 normal numbers! You win $2000 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗3,1-->
+    <div id="dialog31" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">You match 3 normal numbers and 1 special number! You win $1000 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗5,0-->
+    <div id="dialog50" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">You match 5 normal numbers! You win $10000 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗4,1-->
+    <div id="dialog41" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                  </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">You match 4 normal numbers and 1 special number! You win $50000 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗6,0-->
+    <div id="dialog60" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">Congratulations! You match all normals numbers! You win $200000000 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--結果視窗5,1-->
+    <div id="dialog51" class="modal" role="dialog" style="margin-top: 80px">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">system message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                </div>
+                <div class="modal-body">
+                    <p id="message">You match 5 normal numbers and 1 special number! You win $100000000 !</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary reset" data-dismiss="modal" id="restart2">restart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <footer class="fdb-block footer-large " style="background-color: burlywood">
+        <div class="container ">
+            <div class="row text-center">
+                <div class="col ">
+                    <h3 class="footertext">2019 &copy;ACFang 方安均</h3>
+                    <p class="footerp">B04603006</p>
+                    <p class="footerp secret">National Taiwan University</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+<script src="./js/index.js "></script>
+
+</html>

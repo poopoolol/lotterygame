@@ -1,0 +1,106 @@
+#title {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 30px;
+    background-color: #e2fff4;
+}
+
+.hero-section {
+    background: url(https://s2.best-wallpaper.net/wallpaper/1920x1080/1801/Euro-money-currency_1920x1080.jpg);
+    background-size: cover;
+    height: 60vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section-text {
+    color: #fffb52;
+    text-shadow: 18px 14px 3px #847c3d;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+#rule {
+    font-family: 'Sriracha', cursive;
+    background: #e0ffa6;
+}
+
+.item {
+    width: 160px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #ff7a21;
+    border-color: #000000;
+}
+
+#inputsection {
+    background-color: #ffd8be;
+}
+
+.open {
+    width: 160px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.open:hover {
+    cursor: pointer;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, .2);
+    transform: translate3d(-3px, -3px, 0);
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: linear;
+}
+
+img.open.animated.bounceInRight.special:hover {
+    background-color: #ff500f;
+}
+
+.footertext {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+}
+
+.inputtext {
+    font-family: 'Ledger', serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 600;
+}
+
+.openbutton {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.footerp {
+    font-family: 'Tangerine';
+    font-size: 20px;
+}
+
+.modal {
+    font-family: 'EB Garamond', serif;
+    font-size: 25px;
+}
+
+.modal-header {
+    background: aquamarine;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.modal-footer {
+    background-color: darkorange;
+}
